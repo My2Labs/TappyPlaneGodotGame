@@ -22,9 +22,9 @@ func _on_screen_exited():
 
 func _on_pipe_body_entered(body):
 	if body.is_in_group(GameManager.GROUP_PLAYER) == true:
-		print("collision ", body) 
+		body.die()
 
 
 func _on_laser_body_exited(body):
 	if body.is_in_group(GameManager.GROUP_PLAYER) == true:
-		print("laser exited ", body) 
+		ScoreManager.increment_score()
