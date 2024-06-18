@@ -1,6 +1,7 @@
 extends Node
 
 const GROUP_PLAYER: String = "player"
+const SCROLL_SPEED: float = 120.0
 
 var game_scene: PackedScene = preload("res://scenes/game/game.tscn")
 

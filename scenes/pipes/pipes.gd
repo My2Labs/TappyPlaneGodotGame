@@ -1,7 +1,5 @@
 extends Node2D
 
-const SCROLL_SPEED: float = 120.0
-
 @onready var score_sound = $ScoreSound
 
 
@@ -12,7 +10,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.x -= SCROLL_SPEED * delta
+	position.x -= GameManager.SCROLL_SPEED * delta
 	
 	
 

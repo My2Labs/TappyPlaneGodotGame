@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpd1pk2tx5tid"]
+[gd_scene load_steps=9 format=3 uid="uid://dpd1pk2tx5tid"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_hhdbd"]
 [ext_resource type="Texture2D" uid="uid://ch8cr3j14qdfv" path="res://assets/background/rocks_2.png" id="1_tqxxw"]
@@ -7,12 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://b3hrs62tbxjqk" path="res://scenes/pipes/pipes.tscn" id="4_qamr7"]
 [ext_resource type="PackedScene" uid="uid://44pahlaoxmwo" path="res://scenes/hud/hud.tscn" id="6_3ntjs"]
 [ext_resource type="PackedScene" uid="uid://4ewgjy0qhlen" path="res://scenes/game_over/game_over.tscn" id="7_mjvvu"]
+[ext_resource type="PackedScene" uid="uid://c5t4t5qu8hice" path="res://scenes/scrolling_background/scrolling_background.tscn" id="8_04gq6"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_hhdbd")
 pipes_scene = ExtResource("4_qamr7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(246, 321)
 texture = ExtResource("1_tqxxw")
 
@@ -42,5 +44,7 @@ position = Vector2(530, 540)
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("6_3ntjs")]
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("7_mjvvu")]
+
+[node name="ScrollingBackground" parent="." instance=ExtResource("8_04gq6")]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
