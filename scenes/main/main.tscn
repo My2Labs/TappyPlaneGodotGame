@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cn7paydtxo0l3"]
+[gd_scene load_steps=10 format=3 uid="uid://cn7paydtxo0l3"]
 
 [ext_resource type="LabelSettings" uid="uid://cf0dd762t2oj6" path="res://assets/sh_72_title.tres" id="1_bhaa6"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_k7tqb"]
 [ext_resource type="LabelSettings" uid="uid://vuwso1wbgcrv" path="res://assets/sh_48_white.tres" id="2_2srmk"]
 [ext_resource type="LabelSettings" uid="uid://cp5xwbvsi22ud" path="res://assets/sh_24_orange.tres" id="3_44lxk"]
 [ext_resource type="Texture2D" uid="uid://dogayven00nhv" path="res://assets/background/sky.png" id="4_5033t"]
-
-[sub_resource type="Animation" id="Animation_eunnv"]
-resource_name = "press_space_animation"
+[ext_resource type="AudioStream" uid="uid://4wn1cphgm7jq" path="res://assets/audio/bgm_menu.mp3" id="6_2pxgh"]
 
 [sub_resource type="Animation" id="Animation_6v51r"]
 resource_name = "flash"
@@ -25,6 +23,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.972549, 0.968627, 0.945098, 0)]
 }
+
+[sub_resource type="Animation" id="Animation_eunnv"]
+resource_name = "press_space_animation"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_axsw2"]
 _data = {
@@ -104,3 +105,8 @@ libraries = {
 "": SubResource("AnimationLibrary_axsw2")
 }
 autoplay = "flash"
+
+[node name="MainMenuAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2pxgh")
+volume_db = -22.328
+autoplay = true

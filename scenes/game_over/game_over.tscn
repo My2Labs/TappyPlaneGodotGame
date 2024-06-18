@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://4ewgjy0qhlen"]
+[gd_scene load_steps=4 format=3 uid="uid://4ewgjy0qhlen"]
 
 [ext_resource type="Script" path="res://scenes/game_over/game_over.gd" id="1_dnge5"]
 [ext_resource type="LabelSettings" uid="uid://ck5h35jq2went" path="res://assets/sh_48_blue.tres" id="1_v3lyo"]
+[ext_resource type="AudioStream" uid="uid://yq1y5phmc87u" path="res://assets/audio/game_over.wav" id="3_v7jba"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -52,5 +53,8 @@ horizontal_alignment = 1
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_v7jba")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

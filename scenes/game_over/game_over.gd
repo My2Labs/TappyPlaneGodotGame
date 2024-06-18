@@ -3,6 +3,7 @@ extends Control
 @onready var game_over_label = $GameOverLabel
 @onready var space_label = $SpaceLabel
 @onready var timer = $Timer
+@onready var game_over_sound = $GameOverSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +21,7 @@ func run_sequence() -> void:
 	space_label.show()
 
 func on_plane_dies() -> void:
+	game_over_sound.play()
 	show()
 	timer.start()
 
