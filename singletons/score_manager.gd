@@ -15,6 +15,7 @@ func set_score(v: int) -> void:
 	if _score > _high_score:
 		_high_score = _score
 		print("new high score: ", _high_score)
+	SignalManager.on_score_updated.emit()
 
 func increment_score() -> void:
 	set_score(_score + 1)

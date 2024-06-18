@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpd1pk2tx5tid"]
+[gd_scene load_steps=8 format=3 uid="uid://dpd1pk2tx5tid"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_hhdbd"]
 [ext_resource type="Texture2D" uid="uid://ch8cr3j14qdfv" path="res://assets/background/rocks_2.png" id="1_tqxxw"]
 [ext_resource type="PackedScene" uid="uid://d31g6s6a3huyv" path="res://scenes/plane/plane.tscn" id="2_qj252"]
 [ext_resource type="PackedScene" uid="uid://bj5bb0t35dj2r" path="res://scenes/barrier/barrier.tscn" id="3_n6ii3"]
 [ext_resource type="PackedScene" uid="uid://b3hrs62tbxjqk" path="res://scenes/pipes/pipes.tscn" id="4_qamr7"]
+[ext_resource type="PackedScene" uid="uid://44pahlaoxmwo" path="res://scenes/hud/hud.tscn" id="6_3ntjs"]
+[ext_resource type="PackedScene" uid="uid://4ewgjy0qhlen" path="res://scenes/game_over/game_over.tscn" id="7_mjvvu"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_hhdbd")
@@ -35,5 +37,10 @@ position = Vector2(530, 340)
 [node name="SpawnLower" type="Marker2D" parent="."]
 position = Vector2(530, 540)
 
-[connection signal="on_plane_died" from="Plane" to="." method="_on_plane_died"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("6_3ntjs")]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("7_mjvvu")]
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
